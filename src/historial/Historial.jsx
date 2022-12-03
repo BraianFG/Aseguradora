@@ -1,34 +1,48 @@
-import '../estilos/App.css'
+import '../App.css'
 import React from 'react';
 import '../estilos/Footer.css';
 import { BrowserRouter, useNavigate } from "react-router-dom";
 
-
 export const Historial = () => {
-    const local = JSON.parse(localStorage.getItem("datos"))
- 
     const link2 = useNavigate();
-    return (
-        <>
-            <div className="table-responsive">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Fecha de cotización</th>
-                            <th scope="col">Propiedad</th>
-                            <th scope="col">Ubicación</th>
-                            <th scope="col">Metros cuadrados</th>
-                            <th scope="col">Poliza mensual</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-group-divider">
-                        
-                    </tbody>
-                </table>
-            </div>
-            <button onClick={() => link2("/")} className="historial-link">Volver</button>
-
+    const local = JSON.parse(localStorage.getItem("datos"));
+    
+    if(local === null){
+        return( 
+            <>
+                <button onClick={() => {link2("/"); document.querySelector(".card").style="display:block";}} className="historial-link">Volver</button>
+                <p>Historial vacio</p>
+            </>) 
+    }else{
+        return (
+            <>
+                <div className="table-responsive">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha de cotización</th>
+                                <th scope="col">Propiedad</th>
+                                <th scope="col">Ubicación</th>
+                                <th scope="col">Metros cuadrados</th>
+                                <th scope="col">Póliza mensual</th>
+                            </tr>
+                        </thead>
+                        <tbody className="table-group-divider">
+                        {local.map(ver => {
+                                return (
+                                    <tr key={ver.id}>
+                                        <td>{ver.fecha}</td>
+                                        <td>{ver.propiedad}</td>
+                                        <td>{ver.ubicacion}</td>
+                                        <td>{ver.metrosCuadrados}</td>
+                                        <td>{'$' + ver.poliza}</td>
+                                    </tr>
+                                );
+                        })}   
+                        </tbody>
+                    </table>
+                    <button onClick={() => {link2("/"); document.querySelector(".card").style="display:block";}} className="historial-link">Volver</button>
+                </div>
         </>
-
-    );
+    )};
 }

@@ -27,7 +27,7 @@
   text-align: right;
 } 
 
-.option ,select{
+.option , .formulario-elemento{
   text-transform: capitalize;
 }
 

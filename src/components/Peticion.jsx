@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../estilos/Form.css';
-import Recibir from './Recibir';
+import useRecibir from './useRecibir';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -33,7 +33,7 @@ const  Peticion = () => {
   }
 
   return (
-    <form id="formulario" className="Recibir" onSubmit={Recibir}>
+    <form id="formulario" className="Recibir" onSubmit={useRecibir}>
       <label className="label">Seleccione tipo de propiedad</label>
       <select className="formulario-elemento" name="propiedad" onChange={TipoPropiedad} value={edificio}>
         {datos.map(d => {
@@ -57,7 +57,6 @@ const  Peticion = () => {
       <button type="submit" className="enviar" value="Enviar">Cotizar</button>
       <ToastContainer position="bottom-right" reverseOrder={false} />
     </form>
-
   );
 }
 export default Peticion;

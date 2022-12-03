@@ -1,7 +1,8 @@
-import './estilos/App.css';
+import './App.css';
 import FormTitulo from './components/FormTitulo';
 import './estilos/Form.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Precio from './components/Precio';
 
 export default function App() {
   return (
@@ -11,7 +12,6 @@ export default function App() {
         <FormTitulo />
         <div>
         </div>
-
       </header>
     </div>
   );
