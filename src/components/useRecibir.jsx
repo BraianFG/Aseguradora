@@ -4,7 +4,6 @@ import { DateTime } from "luxon";
 
 const useRecibir = (e) => {
     e.preventDefault();
-
     let historial = {}
     let total = 0; let metros = parseInt(e.target.ingreso.value);
     let propiedad = e.target.propiedad.value; let zona = e.target.zona.value;
@@ -62,8 +61,7 @@ const useRecibir = (e) => {
         local.push(historial);
         localStorage.setItem("datos", JSON.stringify(local));
         toast.success("Cotización realizada");
-
-        document.querySelector(".precio").innerHTML=`Precio estimado $${total}`;
+        //precio.current.innerText=`Precio estimado $${total}`;
     }
 }
 export default useRecibir;

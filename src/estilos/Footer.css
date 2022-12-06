@@ -22,3 +22,7 @@
     margin: 1em;
     text-transform: uppercase;
 }
+
+.ocultar{
+    display: none;
+}
