@@ -1,12 +1,11 @@
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { DateTime } from "luxon";
 
 const useRecibir = (e) => {
     e.preventDefault();
+
     let metros = parseInt(e.target.ingreso.value);
     let propiedad = e.target.propiedad.value; let zona = e.target.zona.value;
-
     let PrecioMetro = 50;
     let precioZonaNorte = 0; let precioZonaSur = 0; let precioZonaEsteOeste = 0;
 
@@ -22,10 +21,9 @@ const useRecibir = (e) => {
 
     if (propiedad == "penthouse" || propiedad == "loft" || propiedad == "casaquinta") {
         Propiedadlujo = Propiedadlujo + 7000;
-    }
-    if (propiedad == "edificio" || propiedad == "triplex" || propiedad == "duplex") {
+    }if(propiedad == "edificio" || propiedad == "triplex" || propiedad == "duplex") {
         edificio = edificio + 5500;
-    } if (propiedad == "monoambiente" || propiedad == "casa de dos ambientes" || propiedad == "casa de tres ambientes") {
+    }if(propiedad == "monoambiente" || propiedad == "casa de dos ambientes" || propiedad == "casa de tres ambientes") {
         casa = casa + 3800;
     }
 
@@ -44,9 +42,9 @@ const useRecibir = (e) => {
         localStorage.setItem("datos", JSON.stringify(local));
         toast.success("Cotización realizada");
 
-        //precio.current.innerText=`Precio estimado $${total}`;
+       //precio.current.innerText=`Precio estimado ${historial.poliza}`;
         document.querySelector(".precio").innerHTML = `Precio estimado $${historial.poliza}`;
-    } else if (metros < 40) {
+    } else if (metros < 40 || metros > 400) {
         toast.error('Tiene que tener un minímo de 40 metros cuadrado');
     } else if (metros > 400) {
         toast.error("No podemos agregar más de 400 metros cuadrado")
