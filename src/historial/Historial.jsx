@@ -7,10 +7,11 @@ import { useRef } from 'react';
 export const Historial = () => {
     const link2 = useNavigate();
     const local = JSON.parse(localStorage.getItem("datos"));
+    const mostrar = useRef();
     if(local === null){
         return( 
             <>
-                <button onClick={() => {link2("/");mostrar.current.className="ocultar";}} className="historial-link">Volver</button>
+                <button onClick={() => {link2("/");  document.querySelector(".card").style="display:block"}} className="historial-link">Volver</button>
                 <p>Historial vacio</p>
             </>) 
     }else{
@@ -41,7 +42,7 @@ export const Historial = () => {
                         })}   
                         </tbody>
                     </table>
-                    <button onClick={() => {link2("/")}} className="historial-link">Volver</button>
+                    <button onClick={() => {link2("/"); document.querySelector(".card").style="display:block"}} className="historial-link">Volver</button>
                 </div>
         </>
     )};

@@ -9,7 +9,7 @@ export const Home = () => {
     <>
       <div className="Footer">
         <footer className="footer">
-          <button onClick={() => { link("Historial")}} className="historial-link">Historial de cotizaciones</button>
+          <button onClick={() => { link("Historial");document.querySelector(".card").style="display:none"}} className="historial-link">Historial de cotizaciones</button>
         </footer>
       </div>
     </>
