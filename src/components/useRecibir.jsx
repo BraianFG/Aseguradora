@@ -8,7 +8,7 @@ const useRecibir = (e) => {
     let propiedad = e.target.propiedad.value; let zona = e.target.zona.value;
     let PrecioMetro = 50;
     let precioZonaNorte = 0; let precioZonaSur = 0; let precioZonaEsteOeste = 0;
-
+    
     if (zona === "zona norte" || zona === "zona centro" || zona === "barrio privado") {
         precioZonaNorte = precioZonaNorte + 200;
     } if (zona === "zona sur" || zona === "subirbio") {

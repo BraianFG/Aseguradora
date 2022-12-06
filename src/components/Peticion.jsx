@@ -21,7 +21,6 @@ const  Peticion = () => {
     setMetrosIngresados(m.target.value);
   }
 
-
   const [edificio, setEdificio] = useState('seleccione');
   const TipoPropiedad = (p) => {
     setEdificio(p.target.value)
